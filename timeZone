@@ -1,0 +1,12 @@
+#!/bin/sh
+
+GETTEXT="gettext -d timeZone"
+
+echo "`$GETTEXT \"Enter Continent:\"`"
+read c
+
+echo "`$GETTEXT \"Enter Country:\"`"
+read cn
+
+now=$(export TZ="$c/$cn"; date)
+echo $now
