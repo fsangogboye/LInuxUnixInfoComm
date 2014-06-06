@@ -21,7 +21,7 @@ msgstr ""
 msgid "Enter Continent:"
 msgstr "አህጉር ይፃፉ"
 
-msgid "Enter Country:"
+msgid "Enter City:"
 msgstr "ከተማ ይፃፉ"
 
 msgid "Time and Date:"
