@@ -21,7 +21,7 @@ msgid "Enter Continent:"
 msgstr ""
 
 #: timeZone_ui:7
-msgid "Enter Country:"
+msgid "Enter City:"
 msgstr ""
 
 msgid "Date and Time:"
