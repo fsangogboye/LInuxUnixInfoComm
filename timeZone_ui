@@ -1,0 +1,66 @@
+#!/bin/sh
+
+TIMEZONE=timeZone
+HOST=localhost
+PORT=1234
+
+
+FILE2=/tmp/timeZone2-$$
+ERROR=/tmp/timeZone-err-$$
+
+GETTEXT="gettext -d timeZone_ui"
+
+if [ -r ~/.timeZone.conf ]
+then
+	. ~/.timeZone.conf
+elif [ -r /etc/timeZone.conf ]
+then
+	. /etc/timeZone.conf
+fi
+
+which gdialog 2> /dev/null && DIALOG=gdialog || DIALOG=dialog
+
+help () {
+        echo "Usage: $0 [ host [port] | --help ]"
+}
+
+end () {
+	rm -f $FILE2 $ERROR
+	exit
+}
+
+if [ $# -eq 1 ]
+then
+        if [ $1 -eq '--help' ]
+        then
+                help
+                exit -1
+        else
+                HOST=$1
+        fi
+elif [ $# -eq 2 ]
+then
+        PORT=$2
+fi
+
+if [ $# -ge 1 -o `basename $0` = 'ntimeZone_ui' ]
+then
+	if [ $HOST -a $PORT ]
+	then
+	        TIMEZONE="nc $HOST $PORT"
+	else
+		echo "You must set HOST and PORT"
+		exit -2
+	fi
+fi
+
+while true
+do
+	cont=$($DIALOG --inputbox "`$GETTEXT \"Enter Continent:\"`" 8 35) || end
+	cn=$($DIALOG --inputbox "`$GETTEXT \"Enter Country:\"`" 8 35) || end
+	now=$(export TZ="$cont/$cn"; date)
+	MSG="`$GETTEXT \"Time and Date:\"` $now"
+	$DIALOG --msgbox "$MSG" 7 20 || end
+	MSG="`$GETTEXT \"Do you want to Continue?\"`"
+	$DIALOG --yesno "$MSG" 7 20 || end
+done
