@@ -16,11 +16,9 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: timeZone_ui:4
 msgid "Enter Continent:"
 msgstr ""
 
-#: timeZone_ui:7
 msgid "Enter City:"
 msgstr ""
 
