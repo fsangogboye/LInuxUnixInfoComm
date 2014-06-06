@@ -1,0 +1,10 @@
+# default: on
+# description: The time zone server
+service timeZone
+{
+	flags		= REUSE
+	socket_type	= stream        
+	wait		= no
+	server		= /usr/local/bin/timeZone
+	disable		= no
+}
