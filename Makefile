@@ -1,5 +1,5 @@
 install: timeZone_ui-am.mo
-	install timeZone timeZone_ui /usr/local/bin
+	install timeZone tiemZone_tui timeZone_ui /usr/local/bin
 	which gdialog >/dev/null 2>&1 || install gdialog /usr/local/bin
 	grep -q "`cat timeZone.services`" /etc/services || cat timeZone.services >> /etc/services
 	install timeZone.xinetd /etc/xinetd.d/timeZone
