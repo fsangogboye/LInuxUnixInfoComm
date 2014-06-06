@@ -57,7 +57,7 @@ fi
 while true
 do
 	cont=$($DIALOG --inputbox "`$GETTEXT \"Enter Continent:\"`" 8 35) || end
-	cn=$($DIALOG --inputbox "`$GETTEXT \"Enter Country:\"`" 8 35) || end
+	cn=$($DIALOG --inputbox "`$GETTEXT \"Enter City:\"`" 8 35) || end
 	now=$(export TZ="$cont/$cn"; date)
 	MSG="`$GETTEXT \"Time and Date:\"` $now"
 	$DIALOG --msgbox "$MSG" 7 20 || end
