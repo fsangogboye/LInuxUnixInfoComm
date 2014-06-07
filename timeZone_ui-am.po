@@ -18,11 +18,8 @@ msgstr ""
 
 # The original script is customized for Amharic
 
-msgid "Enter Continent:"
-msgstr "አህጉር ይፃፉ"
-
-msgid "Enter City:"
-msgstr "ከተማ ይፃፉ"
+msgid "Enter Continent/City:"
+msgstr "አህጉር/ ከተማ ይፃፉ"
 
 msgid "Time and Date:"
 msgstr "ቀንና ግዜ"
