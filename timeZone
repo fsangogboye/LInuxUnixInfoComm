@@ -9,7 +9,9 @@
 #now=$(export TZ="$c/$cn"; date)
 #echo $now
 #######################
-
+	
+	echo "Enter Country/City"
+	
 	read location
 
 	now=$(export TZ="$location"; date)
