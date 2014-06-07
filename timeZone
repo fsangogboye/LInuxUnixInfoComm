@@ -1,10 +1,17 @@
 #!/bin/sh
 
-echo "Enter Continent:"
-read c
+################
+#echo "Enter Continent:"
+#read c
+#echo "Enter City:"
+#read cn
+#now=$(export TZ="$c/$cn"; date)
+#echo $now
+#######################
 
-echo "Enter City:"
-read cn
 
+read location
+now=$(export TZ="$location"; date)
+echo $now
 now=$(export TZ="$c/$cn"; date)
 echo $now
