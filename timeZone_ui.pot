@@ -16,10 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Enter Continent:"
-msgstr ""
-
-msgid "Enter City:"
+msgid "Enter Continent/City:"
 msgstr ""
 
 msgid "Date and Time:"
