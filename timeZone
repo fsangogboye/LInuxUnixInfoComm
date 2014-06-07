@@ -1,4 +1,5 @@
 #!/bin/sh
+#!/bin/sh
 
 ################
 #echo "Enter Continent:"
@@ -9,9 +10,8 @@
 #echo $now
 #######################
 
+	read location
 
-read location
-now=$(export TZ="$location"; date)
-echo $now
-now=$(export TZ="$c/$cn"; date)
-echo $now
+	now=$(export TZ="$location"; date)
+
+	echo $now
