@@ -4,7 +4,7 @@ TIMEZONE=timeZone
 HOST=localhost
 PORT=1234
 
-
+FILE1=/tmp/timeZone1-$$
 FILE2=/tmp/timeZone2-$$
 ERROR=/tmp/timeZone-err-$$
 
@@ -56,11 +56,16 @@ fi
 
 while true
 do
-	cont=$($DIALOG --inputbox "`$GETTEXT \"Enter Continent:\"`" 8 35) || end
-	cn=$($DIALOG --inputbox "`$GETTEXT \"Enter City:\"`" 8 35) || end
-	now=$(export TZ="$cont/$cn"; date)
-	MSG="`$GETTEXT \"Time and Date:\"` $now"
-	$DIALOG --msgbox "$MSG" 7 20 || end
-	MSG="`$GETTEXT \"Do you want to Continue?\"`"
-	$DIALOG --yesno "$MSG" 7 20 || end
+	
+	$DIALOG --inputbox "`$GETTEXT \"Enter Continent/City:\"`" 8 35 2> $FILE1|| end
+	if cat $FILE1 | $TIMEZONE > $FILE2 2>$ERROR
+	then	
+		MSG="`$GETTEXT \"Time and Date:\"` `cat $FILE2`"
+		$DIALOG --msgbox "$MSG" 7 20 || end
+		MSG="`$GETTEXT \"Do you want to Continue?\"`"
+		$DIALOG --yesno "$MSG" 7 20 || end
+	else
+		MSG="`$GETTEXT \"Error:\"`\\n\\n`cat $ERROR`\\n\\n`$GETTEXT \"Continue?\"`"
+		$DIALOG --yesno "$MSG" 10 35 || end
+	fi
 done
